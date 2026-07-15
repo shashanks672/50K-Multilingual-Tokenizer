@@ -71,7 +71,13 @@ color:gray;
 # -----------------------------
 # Load Tokenizer
 # -----------------------------
-tokenizer = Tokenizer.from_file("tokenizer_50k.json")
+from pathlib import Path
+from tokenizers import Tokenizer
+
+BASE_DIR = Path(__file__).resolve().parent
+TOKENIZER_PATH = BASE_DIR / "tokenizer_50k.json"
+
+tokenizer = Tokenizer.from_file(str(TOKENIZER_PATH))
 
 # -----------------------------
 # Hero Section
